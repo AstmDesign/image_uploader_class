@@ -7,7 +7,7 @@
 		<title>Image Uploader</title>
 
 		<!-- Bootstrap CSS -->
-		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 	</head>
 	<body>
@@ -33,7 +33,7 @@
       if($_FILES["filepic"]["type"]=='image/png'){$extension=".png";}
 
       // create image path
-      $path="system/".date("Y")."/".$model."/imageName".$extension;
+      $path="system/".date("Y")."/".$model."/".time().$extension;
 
       // load the image
       $image = new SimpleImage();
@@ -43,16 +43,18 @@
     };
     ?>
 
-		<form action="" method="POST" role="form" enctype="multipart/form-data">
-			<legend>Form title</legend>
+    <div class="container">
 
-			<div class="form-group">
-				<label for="">Select image</label>
-				<input type="file" class="form-control" id="filepic" name="filepic" required="true">
-			</div>
+  		<form action="" method="POST" role="form" enctype="multipart/form-data">
 
-			<button type="submit" class="btn btn-primary">Upload</button>
-		</form>
+  			<div class="form-group">
+  				<label for="">Select image</label>
+  				<input type="file" class="form-control" id="filepic" name="filepic" required="true">
+  			</div>
 
+  			<button type="submit" class="btn btn-primary">Upload</button>
+  		</form>
+
+    </div>
 	</body>
 </html>
